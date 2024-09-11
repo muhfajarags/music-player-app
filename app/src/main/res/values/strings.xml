@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">music_player_app</string>
+    <string name="music_player_app">Music_Player_App</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="discover">Discover</string>
+    <string name="profile">profile</string>
+    <string name="recommended_for_you">Recommended For You</string>
+    <string name="double_life">Double Life</string>
+    <string name="_1000_played">1000 Played</string>
+    <string name="play_button" />
+    <string name="celloo">Celloo</string>
+    <string name="artist">Artist</string>
+    <string name="salma_salsabil">Salma Salsabil</string>
+    <string name="arsy_widianto">Arsy Widianto</string>
+    <string name="nabila_taqiyyah">Nabila Taqiyyah</string>
+    <string name="today_s_hits">Today\'s Hits</string>
+    <string name="lyodra_margareta">Lyodra Margareta</string>
+    <string name="tak_selalu_memiliki">Tak Selalu Memiliki</string>
+    <string name="recently_played">Recently Played</string>
+    <string name="search">Search</string>
+    <string name="playlist">Playlist</string>
+    <string name="home">Home</string>
+</resources>
