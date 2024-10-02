@@ -28,10 +28,15 @@ public class HomeFragment extends Fragment {
         }
 
         LinearLayout song1Layout = view.findViewById(R.id.song1_layout);
+        int coverResourceId = R.drawable.img_song1;
         if (song1Layout != null) {
             song1Layout.setOnClickListener(v -> {
                 try {
                     Intent intent = new Intent(getActivity(), MusicPlayerActivity.class);
+                    intent.putExtra("songTitle", "Penjaga Hati");
+                    intent.putExtra("artistName", "NadifBasamalah");
+                    intent.putExtra("songUrl", "https://firebasestorage.googleapis.com/v0/b/celloo-pam.appspot.com/o/penjaga_hati.mp3?alt=media&token=133c1b6b-93d4-4b33-9da7-2308b5a4b78a");
+                    intent.putExtra("coverImageResource", coverResourceId);
                     startActivity(intent);
                 } catch (Exception e) {
                     showErrorToast("Error opening Music Player: " + e.getMessage());

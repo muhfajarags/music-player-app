@@ -1,10 +1,14 @@
 package com.example.music_player_app;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 
@@ -19,6 +23,24 @@ public class MusicPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_player);
+
+        // Retrieve data from Intent
+        Intent intent = getIntent();
+        String songTitle = intent.getStringExtra("songTitle");
+        String artistName = intent.getStringExtra("artistName");
+        String songUrl = intent.getStringExtra("songUrl");
+        int coverResourceId = getIntent().getIntExtra("coverImageResource", 0);
+
+        // Initialize UI elements
+        TextView songTitleView = findViewById(R.id.song_title);
+        TextView artistNameView = findViewById(R.id.song_artist);
+        ImageView coverImageView = findViewById(R.id.song_cover);
+        playPauseButton = findViewById(R.id.pause_music_player);
+
+        // Set data to UI elements
+        songTitleView.setText(songTitle);
+        artistNameView.setText(artistName);
+        coverImageView.setImageResource(coverResourceId);
 
         playPauseButton = findViewById(R.id.pause_music_player);
         mediaPlayer = new MediaPlayer();
