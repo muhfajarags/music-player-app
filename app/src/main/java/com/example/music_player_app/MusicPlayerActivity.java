@@ -53,7 +53,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
                     mediaPlayer.prepare();
                 }
                 mediaPlayer.start();
-                playPauseButton.setImageResource(R.drawable.pause_music_player);  // Ganti gambar tombol menjadi ikon pause
+                playPauseButton.setImageResource(R.drawable.img_pause);  // Ganti gambar tombol menjadi ikon pause
                 isPlaying = true;
                 Log.d(TAG, "Music started playing");
             }
@@ -66,7 +66,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     private void pauseMusic() {
         if (isPlaying && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
-            playPauseButton.setImageResource(R.drawable.play_music_player);  // Ganti gambar tombol menjadi ikon play
+            playPauseButton.setImageResource(R.drawable.img_play);  // Ganti gambar tombol menjadi ikon play
             isPlaying = false;
             Log.d(TAG, "Music paused");
         }

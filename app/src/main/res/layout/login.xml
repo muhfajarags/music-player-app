@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/bg_gradient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,7 +17,7 @@
             android:id="@+id/star_illustration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/white_star"
+            android:src="@drawable/img_white_star"
             android:layout_gravity="end"
             />
         <TextView
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="38dp"
-            android:background="@drawable/search_bar_background"
+            android:background="@drawable/bg_search_bar"
             android:fontFamily="@font/poppins_semibold"
             android:paddingHorizontal="26dp"
             android:paddingVertical="13dp"
@@ -169,7 +169,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/search_bar_background"
+                android:background="@drawable/bg_search_bar"
                 android:fontFamily="@font/poppins_semibold"
                 android:paddingHorizontal="26dp"
                 android:paddingVertical="13dp"
@@ -182,7 +182,7 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/search_bar_background"
+                android:background="@drawable/bg_search_bar"
                 android:fontFamily="@font/poppins_semibold"
                 android:paddingHorizontal="26dp"
                 android:paddingVertical="13dp"

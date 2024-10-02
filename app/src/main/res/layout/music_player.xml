@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="64dp"
-        android:paddingHorizontal="16dp"
-        android:paddingBottom="16dp"
-        >
-
+    android:orientation="vertical"
+    android:paddingTop="64dp"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="16dp"
+    android:background="@drawable/bg_gradient">
         <ImageButton
             android:id="@+id/arrow_back"
             android:layout_width="wrap_content"
@@ -23,20 +18,21 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/back"
             android:rotation="270"
-            android:src="@drawable/arrow_back_ios_24"
+            android:src="@drawable/ic_back_ios"
             tools:ignore="TouchTargetSizeCheck" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/center_image"
+            android:id="@+id/song_cover"
             android:layout_width="220dp"
             android:layout_height="220dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/song1"
+            android:src="@drawable/img_song1"
             app:shapeAppearanceOverlay="@style/songSquare"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"/>
 
         <TextView
+            android:id="@+id/song_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
@@ -46,6 +42,7 @@
             android:textColor="@color/white"
             android:textSize="32sp" />
         <TextView
+            android:id="@+id/song_artist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
@@ -54,68 +51,75 @@
             android:textColor="@color/white"
             android:textSize="16sp" />
         <LinearLayout
+            android:id="@+id/controller_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:layout_marginTop="32dp"
             >
-            <ImageView
-                android:id="@+id/next_prev"
+            <ImageButton
+                android:id="@+id/skip_prev"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/next_24"
+                android:src="@drawable/ic_next"
                 android:rotation="180"
+                android:background="@android:color/transparent"
                 android:layout_gravity="center_vertical"/>
             <ImageButton
                 android:id="@+id/pause_music_player"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:contentDescription="pause"
-                android:src="@drawable/play_music_player"
+                android:contentDescription="@string/pause"
+                android:src="@drawable/img_play"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="40dp"
-                android:background="@null"/>
-            <ImageView
-                android:id="@+id/next_next"
+                android:background="@android:color/transparent"
+                />
+            <ImageButton
+                android:id="@+id/skip_next"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/next_24"
-                android:rotation="0"
+                android:src="@drawable/ic_next"
+                android:background="@android:color/transparent"
                 android:layout_gravity="center_vertical"
                     />
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/advance_controller"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_horizontal"
             android:layout_marginTop="32dp"
             >
-            <ImageView
+            <ImageButton
                 android:id="@+id/shuffle"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/shuffle_24"
-                android:rotation="180"
-                android:layout_gravity="center_vertical"/>
-            <ImageView
+                android:src="@drawable/ic_shuffle"
+                android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
+                />
+            <ImageButton
                 android:id="@+id/repeat"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="repeat"
-                android:src="@drawable/repeat_24"
+                android:src="@drawable/ic_repeat"
                 android:rotation="180"
                 android:layout_gravity="center_vertical"
-                android:layout_marginHorizontal="40dp"/>
-            <ImageView
+                android:layout_marginHorizontal="40dp"
+                android:background="@android:color/transparent"
+                />
+            <ImageButton
                 android:id="@+id/liked"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/thumb_up_24"
+                android:src="@drawable/ic_thumb_up"
                 android:rotation="0"
                 android:layout_gravity="center_vertical"
+                android:background="@android:color/transparent"
                 />
         </LinearLayout>
     </LinearLayout>
-</ScrollView>

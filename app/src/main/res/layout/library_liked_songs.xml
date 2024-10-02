@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/bg_gradient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="start"
                 android:layout_marginEnd="6dp"
-                android:background="@drawable/rounded_button_background_not_selected"
+                android:background="@drawable/bg_rounded_button_not_selected"
                 android:fontFamily="@font/poppins_medium"
                 android:padding="8dp"
                 android:text="@string/playlist"
@@ -60,7 +60,7 @@
                 android:layout_width="142dp"
                 android:layout_height="48dp"
                 android:text="@string/liked_songs"
-                android:background="@drawable/rounded_button_background"
+                android:background="@drawable/bg_rounded_button"
                 android:textColor="@android:color/black"
                 android:layout_gravity="start"
                 android:padding="8dp"
@@ -75,7 +75,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/song1"
+                android:src="@drawable/img_song1"
                 app:shapeAppearanceOverlay="@style/songSquare"
                 />
             <LinearLayout
@@ -113,7 +113,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/song2"
+                android:src="@drawable/img_song2"
                 app:shapeAppearanceOverlay="@style/songSquare"
                 />
             <LinearLayout
@@ -151,7 +151,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/song3"
+                android:src="@drawable/img_song3"
                 app:shapeAppearanceOverlay="@style/songSquare"
                 />
             <LinearLayout
@@ -189,7 +189,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/rp1"
+                android:src="@drawable/img_rp1"
                 app:shapeAppearanceOverlay="@style/songSquare"
                 />
             <LinearLayout

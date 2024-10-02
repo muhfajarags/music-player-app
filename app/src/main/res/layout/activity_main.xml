@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/bg_gradient">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -117,10 +117,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
-                                    android:background="@drawable/circle_shape"
+                                    android:background="@drawable/shp_white_circle"
                                     android:contentDescription="@string/double_life"
                                     android:scaleType="centerInside"
-                                    android:src="@drawable/play_arrow" />
+                                    android:src="@drawable/ic_play" />
 
                             </LinearLayout>
 
@@ -130,7 +130,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginEnd="12dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/recom1" />
+                                android:src="@drawable/img_recom1" />
 
                         </LinearLayout>
 
@@ -182,10 +182,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
-                                    android:background="@drawable/circle_shape"
+                                    android:background="@drawable/shp_white_circle"
                                     android:contentDescription="@string/double_life"
                                     android:scaleType="centerInside"
-                                    android:src="@drawable/play_arrow" />
+                                    android:src="@drawable/ic_play" />
 
                             </LinearLayout>
 
@@ -195,7 +195,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginEnd="12dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/recom1" />
+                                android:src="@drawable/img_recom1" />
 
                         </LinearLayout>
 
@@ -247,10 +247,10 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
-                                    android:background="@drawable/circle_shape"
+                                    android:background="@drawable/shp_white_circle"
                                     android:contentDescription="@string/double_life"
                                     android:scaleType="centerInside"
-                                    android:src="@drawable/play_arrow" />
+                                    android:src="@drawable/ic_play" />
 
                             </LinearLayout>
 
@@ -260,7 +260,7 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginEnd="12dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/recom1" />
+                                android:src="@drawable/img_recom1" />
 
                         </LinearLayout>
 
@@ -315,7 +315,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/artist1"
+                                android:src="@drawable/img_artist1"
                                 app:shapeAppearanceOverlay="@style/CircleImageView"
                                 android:layout_marginTop="12dp"/>
 
@@ -352,7 +352,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/artist2"
+                                android:src="@drawable/img_artist2"
                                 app:shapeAppearanceOverlay="@style/CircleImageView"
                                 android:layout_marginTop="12dp"/>
 
@@ -389,7 +389,7 @@
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/artist3"
+                                android:src="@drawable/img_artist3"
                                 app:shapeAppearanceOverlay="@style/CircleImageView"
                                 android:layout_marginTop="12dp"/>
 
@@ -455,7 +455,7 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/song1"
+                                android:src="@drawable/img_song1"
                                 app:shapeAppearanceOverlay="@style/songSquare"
                                 android:layout_marginTop="12dp"/>
 
@@ -501,7 +501,7 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/song2"
+                                android:src="@drawable/img_song2"
                                 app:shapeAppearanceOverlay="@style/songSquare"
                                 android:layout_marginTop="12dp"/>
 
@@ -547,7 +547,7 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/song3"
+                                android:src="@drawable/img_song3"
                                 app:shapeAppearanceOverlay="@style/songSquare"
                                 android:layout_marginTop="12dp"/>
 
@@ -622,7 +622,7 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/rp1"
+                                android:src="@drawable/img_rp1"
                                 app:shapeAppearanceOverlay="@style/songSquare"
                                 android:layout_marginTop="12dp"/>
 
@@ -664,7 +664,7 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/rp2"
+                                android:src="@drawable/img_rp2"
                                 app:shapeAppearanceOverlay="@style/songSquare"
                                 android:layout_marginTop="12dp"/>
 
@@ -710,7 +710,7 @@
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/rp3"
+                                android:src="@drawable/img_rp3"
                                 app:shapeAppearanceOverlay="@style/songSquare"
                                 android:layout_marginTop="12dp"/>
 
@@ -759,11 +759,11 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             app:menu="@menu/bottom_nav_menu"
-            android:background="@drawable/nav_background"
+            android:background="@drawable/bg_nav"
             android:layout_marginBottom="46dp"
             app:itemIconTint="@color/nav_item_color"
             app:labelVisibilityMode="unlabeled"
-            app:itemBackground="@drawable/nav_item_background"
+            app:itemBackground="@drawable/bg_nav_item"
             />
     </RelativeLayout>
 </RelativeLayout>

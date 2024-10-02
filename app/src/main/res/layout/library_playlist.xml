@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_background">
+    android:background="@drawable/bg_gradient">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:layout_height="48dp"
                 android:layout_gravity="start"
                 android:layout_marginEnd="6dp"
-                android:background="@drawable/rounded_button_background"
+                android:background="@drawable/bg_rounded_button"
                 android:fontFamily="@font/poppins_medium"
                 android:padding="8dp"
                 android:text="@string/playlist"
@@ -60,7 +60,7 @@
                 android:layout_width="142dp"
                 android:layout_height="48dp"
                 android:text="@string/liked_songs"
-                android:background="@drawable/rounded_button_background_not_selected"
+                android:background="@drawable/bg_rounded_button_not_selected"
                 android:textColor="#D8D8D8"
                 android:layout_gravity="start"
                 android:padding="8dp"
@@ -75,7 +75,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/playlist1"
+                android:src="@drawable/img_playlist1"
                 app:shapeAppearanceOverlay="@style/songSquare"
                 />
             <LinearLayout
@@ -113,7 +113,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/playlist2"
+                android:src="@drawable/img_playlist2"
                 app:shapeAppearanceOverlay="@style/songSquare"
                 />
             <LinearLayout
@@ -149,7 +149,7 @@
             android:layout_marginTop="86dp"
             android:layout_marginBottom="32dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_button_background"
+            android:background="@drawable/bg_rounded_button"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/generate_your_playlist"
             android:paddingHorizontal="26dp"

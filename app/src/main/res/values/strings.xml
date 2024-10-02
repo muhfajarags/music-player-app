@@ -41,4 +41,6 @@
     <string name="search_bar">search bar</string>
     <string name="nadif_basamalah">Nadif Basamalah</string>
     <string name="back">back</string>
+    <string name="view_all">View all</string>
+    <string name="pause">pause</string>
 </resources>
