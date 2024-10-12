@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="songTitle" type="id">songTitle</item>
+    <item name="songSinger" type="id">songSinger</item>
+    <item name="songImage" type="id">songImage</item>
+</resources>
