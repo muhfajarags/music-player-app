@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_music"
-        android:title="@string/home"/>
-
+        tools:ignore="MenuTitle"
+        />
     <item
-        android:id="@+id/Search"
-        android:icon="@drawable/ic_playlist"
-        android:title="@string/playlist"/>
-
+        android:id="@+id/navigation_library"
+        android:icon="@drawable/ic_library"
+        tools:ignore="MenuTitle" />
     <item
-        android:id="@+id/person"
+        android:id="@+id/navigation_search"
         android:icon="@drawable/ic_search"
-        android:title="@string/search"/>
+        tools:ignore="MenuTitle" />
 </menu>
