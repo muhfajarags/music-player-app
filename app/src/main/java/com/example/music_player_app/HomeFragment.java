@@ -21,8 +21,10 @@ import org.json.JSONArray;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import android.content.Intent;
 
-public class HomeFragment extends Fragment {
+
+public class HomeFragment extends Fragment implements SongAdapter.OnSongClickListener {
     private RecyclerView recyclerView;
     private SongAdapter adapter;
 
@@ -33,16 +35,26 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        adapter = new SongAdapter(new ArrayList<>(), getContext());
+        adapter = new SongAdapter(new ArrayList<>(), getContext(), this);
         recyclerView.setAdapter(adapter);
 
         fetchTrendingSongs();
 
         return view;
     }
+    @Override
+    public void onSongClick(Song song) {
+        Intent intent = new Intent(getContext(), MusicPlayerActivity.class);
+        intent.putExtra("songTitle", song.getTitle());
+        intent.putExtra("artistName", song.getArtist());
+        intent.putExtra("songUrl", song.getSongUrl()); // Assuming you have this method in Song class
+        // You might want to pass the cover image URL instead of resource ID
+        intent.putExtra("coverImageUrl", song.getCoverUrl());
+        startActivity(intent);
+    }
 
     private void fetchTrendingSongs() {
-        String url = "https://music-player-app-7fe7e-default-rtdb.asia-southeast1.firebasedatabase.app/today_hits.json"; // Ganti dengan URL Firebase Anda
+        String url = "https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/today_hits.json"; // Ganti dengan URL Firebase Anda
 
         JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
                 response -> {

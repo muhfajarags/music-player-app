@@ -21,10 +21,16 @@ import java.util.Objects;
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder> {
     private List<Song> songs;
     private final Context context;
+    private final OnSongClickListener songClickListener;
 
-    SongAdapter(List<Song> songs, Context context) {
+    public interface OnSongClickListener {
+        void onSongClick(Song song);
+    }
+
+    SongAdapter(List<Song> songs, Context context, OnSongClickListener songClickListener) {
         this.songs = songs;
         this.context = context;
+        this.songClickListener = songClickListener;
     }
 
     @NonNull
@@ -37,19 +43,15 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     @Override
     public void onBindViewHolder(@NonNull SongViewHolder holder, int position) {
         Song song = songs.get(position);
-
-        // Memangkas judul lagu menjadi maksimal 12 karakter
         String shortTitle = song.getTitle().length() > 12 ? song.getTitle().substring(0, 12) + "..." : song.getTitle();
         holder.titleTextView.setText(shortTitle);
-
-        // Memangkas nama penyanyi menjadi maksimal 15 karakter
         String shortSinger = song.getArtist().length() > 15 ? song.getArtist().substring(0, 15) + "..." : song.getArtist();
         holder.singerTextView.setText(shortSinger);
-
-        // Memuat gambar menggunakan Glide
         Glide.with(context)
                 .load(song.getCoverUrl())
                 .into(holder.imageView);
+        // Set click listener on the item view
+        holder.itemView.setOnClickListener(v -> songClickListener.onSongClick(song));
     }
 
     @Override

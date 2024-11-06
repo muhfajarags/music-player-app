@@ -8,8 +8,12 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
+
 import java.io.IOException;
 
 public class MusicPlayerActivity extends AppCompatActivity {
@@ -28,8 +32,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String songTitle = intent.getStringExtra("songTitle");
         String artistName = intent.getStringExtra("artistName");
-        String songUrl = intent.getStringExtra("songUrl");
-        int coverResourceId = getIntent().getIntExtra("coverImageResource", 0);
+        String songUrl = intent.getStringExtra("songUrl"); // Get the song URL
+        String coverImageUrl = intent.getStringExtra("coverImageUrl"); // Get the cover image URL
 
         // Initialize UI elements
         TextView songTitleView = findViewById(R.id.song_title);
@@ -40,9 +44,8 @@ public class MusicPlayerActivity extends AppCompatActivity {
         // Set data to UI elements
         songTitleView.setText(songTitle);
         artistNameView.setText(artistName);
-        coverImageView.setImageResource(coverResourceId);
+        Glide.with(this).load(coverImageUrl).into(coverImageView);
 
-        playPauseButton = findViewById(R.id.pause_music_player);
         mediaPlayer = new MediaPlayer();
 
         playPauseButton.setOnClickListener(new View.OnClickListener() {
@@ -51,11 +54,12 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 if (isPlaying) {
                     pauseMusic();
                 } else {
-                    playMusic();
+                    playMusic(songUrl); // Pass the song URL to playMusic
                 }
                 Log.d(TAG, "Play/Pause button clicked. isPlaying: " + isPlaying);
             }
         });
+
         ImageButton backButton = findViewById(R.id.arrow_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,30 +69,41 @@ public class MusicPlayerActivity extends AppCompatActivity {
         });
     }
 
-    private void playMusic() {
+    private void playMusic(String audioUrl) { // Method to accept audio URL
         try {
             if (!isPlaying) {
                 if (!mediaPlayer.isPlaying()) {
                     mediaPlayer.reset();
-                    String audioUrl = "https://firebasestorage.googleapis.com/v0/b/celloo-pam.appspot.com/o/penjaga_hati.mp3?alt=media&token=133c1b6b-93d4-4b33-9da7-2308b5a4b78a";
-                    mediaPlayer.setDataSource(audioUrl);
+                    mediaPlayer.setDataSource(audioUrl); // Use the passed audio URL
                     mediaPlayer.prepare();
                 }
                 mediaPlayer.start();
-                playPauseButton.setImageResource(R.drawable.img_pause);  // Ganti gambar tombol menjadi ikon pause
+                playPauseButton.setImageResource(R.drawable.img_pause);  // Change button image to pause icon
                 isPlaying = true;
                 Log.d(TAG, "Music started playing");
+
+                // Optional: Release resources when the music ends
+                mediaPlayer.setOnCompletionListener(mp -> {
+                    isPlaying = false;
+                    playPauseButton.setImageResource(R.drawable.img_play); // Reset button to play icon
+                });
             }
         } catch (IOException e) {
             Log.e(TAG, "Error playing music", e);
-            e.printStackTrace();
+            Toast.makeText(this, "Error playing music: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        } catch (IllegalArgumentException e) {
+            Log.e(TAG, "Invalid audio URL", e);
+            Toast.makeText(this, "Invalid audio URL: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error", e);
+            Toast.makeText(this, "Unexpected error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
     private void pauseMusic() {
         if (isPlaying && mediaPlayer.isPlaying()) {
             mediaPlayer.pause();
-            playPauseButton.setImageResource(R.drawable.img_play);  // Ganti gambar tombol menjadi ikon play
+            playPauseButton.setImageResource(R.drawable.img_play);
             isPlaying = false;
             Log.d(TAG, "Music paused");
         }
@@ -103,6 +118,3 @@ public class MusicPlayerActivity extends AppCompatActivity {
         }
     }
 }
-
-
-
