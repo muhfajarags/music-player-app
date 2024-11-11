@@ -1,4 +1,4 @@
-![Cover](https://firebasestorage.googleapis.com/v0/b/celloo-pam.appspot.com/o/cover.png?alt=media&token=b58ee3b4-f08c-4345-8b98-d94583116437)
+![Cover](https://firebasestorage.googleapis.com/v0/b/celloo-pam.appspot.com/o/cover-min.png?alt=media&token=abbafe9f-e37c-4f63-8497-fce89599701e)
 
 # Celloo 🎶
 
