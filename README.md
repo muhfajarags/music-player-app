@@ -1,4 +1,5 @@
-gs://celloo-pam.appspot.com/Desktop - 1 (7).png
+![Cover](gs://celloo-pam.appspot.com/Desktop - 1 (7).png)
+
 # Celloo 🎶
 
 **Celloo** adalah pemutar musik ramping dan intuitif untuk Android yang dirancang untuk menghadirkan pengalaman mendengarkan yang mudah dan imersif. Dengan Celloo, Anda dapat menikmati lagu-lagu favorit Anda dan menjelajahi musik baru dengan antarmuka yang ramah pengguna dan akses instan ke perpustakaan musik Anda. Fitur unggulan termasuk **Playlist Generation Using AI**, yang memungkinkan pengguna secara otomatis membuat playlist berdasarkan preferensi mendengarkan mereka, menjadikan setiap pengalaman musik lebih personal dan menyenangkan.
