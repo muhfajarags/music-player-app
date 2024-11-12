@@ -1,4 +1,4 @@
-![Cover](./cover-min.png)
+![Cover](./cover.png)
 
 # Celloo 🎶
 
