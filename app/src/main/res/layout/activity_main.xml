@@ -424,17 +424,157 @@
                     android:layout_marginTop="32dp"/>
             </FrameLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerView"
-                    android:layout_width="match_parent"
+                <!-- Single LinearLayout to contain all CardViews -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:ignore="MissingConstraints" />
+                    android:orientation="horizontal">
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:id="@+id/song1_layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="start"
+                            android:layout_marginEnd="16dp"
+                            >
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_song1"
+                                app:shapeAppearanceOverlay="@style/songSquare"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/song1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:text="Penjaga Hati"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/song1_singer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NNadhif Basalamah"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="0dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="start"
+                            android:layout_marginEnd="16dp">
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_song2"
+                                app:shapeAppearanceOverlay="@style/songSquare"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/rp2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayuan Peremp.."
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:layout_marginTop="8dp"/>
+
+                            <TextView
+                                android:id="@+id/song2_singer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nadin Amizaha"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="0dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="start"
+                            android:layout_marginEnd="16dp">
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_song3"
+                                app:shapeAppearanceOverlay="@style/songSquare"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/song3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:text="@string/tak_selalu_memiliki"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/song3_singer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lyodra_margareta"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="0dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
 
             <FrameLayout
                 android:layout_width="match_parent"

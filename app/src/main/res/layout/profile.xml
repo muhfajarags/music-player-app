@@ -5,25 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="64dp"
         android:paddingHorizontal="16dp"
-        android:paddingBottom="16dp"
-        >
+        android:paddingTop="64dp"
+        android:paddingBottom="16dp">
+
         <ImageButton
             android:id="@+id/arrow_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back"
             android:layout_marginBottom="20dp"
-            android:background="@android:color/transparent"/>
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/center_image"
                 android:layout_width="125dp"
@@ -31,12 +34,14 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/img_profile1"
                 app:shapeAppearanceOverlay="@style/songSquare" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/profileName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="31dp"
@@ -48,11 +53,12 @@
                     android:textSize="30sp" />
 
                 <Button
+                    android:id="@+id/editProfileBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:layout_marginTop="13dp"
                     android:layout_marginStart="29dp"
+                    android:layout_marginTop="13dp"
                     android:background="@drawable/bg_search_bar"
                     android:fontFamily="@font/poppins_semibold"
                     android:paddingHorizontal="26dp"
@@ -72,83 +78,12 @@
             android:textColor="@color/white"
             android:textSize="25sp" />
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_playlist1"
-                app:shapeAppearanceOverlay="@style/songSquare"
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/OVT_24_7"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="start"
-                    android:layout_marginStart="16dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/_12_september_2024"
-                    android:textSize="12sp"
-                    android:textColor="#9DA8CD"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="start"
-                    android:layout_marginStart="16dp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_playlist2"
-                app:shapeAppearanceOverlay="@style/songSquare"
-                />
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_gravity="center_vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pingin_nilai_a"
-                    android:textSize="20sp"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="start"
-                    android:layout_marginStart="16dp"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/_12_september_2024"
-                    android:textSize="12sp"
-                    android:textColor="#9DA8CD"
-                    android:fontFamily="@font/poppins_medium"
-                    android:gravity="start"
-                    android:layout_marginStart="16dp"
-                    />
-            </LinearLayout>
-        </LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/myRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
+        </androidx.recyclerview.widget.RecyclerView>
 
         <Button
             android:layout_width="200dp"
@@ -163,5 +98,6 @@
             android:text="Logout"
             android:textColor="@color/white"
             android:textSize="16sp" />
+
     </LinearLayout>
 </ScrollView>
