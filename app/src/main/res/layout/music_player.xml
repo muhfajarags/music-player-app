@@ -25,8 +25,6 @@
             android:id="@+id/song_cover"
             android:layout_width="220dp"
             android:layout_height="220dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_song1"
             app:shapeAppearanceOverlay="@style/songSquare"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="32dp"/>
@@ -38,7 +36,6 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/poppins_medium"
             android:gravity="center_horizontal"
-            android:text="@string/penjaga_hati"
             android:textColor="@color/white"
             android:textSize="32sp" />
         <TextView
@@ -47,7 +44,6 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center_horizontal"
-            android:text="@string/nadif_basamalah"
             android:textColor="@color/white"
             android:textSize="16sp" />
         <LinearLayout
@@ -58,32 +54,34 @@
             android:gravity="center_horizontal"
             android:layout_marginTop="32dp"
             >
+
             <ImageButton
                 android:id="@+id/skip_prev"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_next"
-                android:rotation="180"
+                android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:layout_gravity="center_vertical"/>
+                android:rotation="180"
+                android:src="@drawable/ic_next"
+                tools:ignore="SpeakableTextPresentCheck" />
             <ImageButton
                 android:id="@+id/pause_music_player"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:contentDescription="@string/pause"
                 android:src="@drawable/img_play"
-                android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="40dp"
                 android:background="@android:color/transparent"
                 />
+
             <ImageButton
                 android:id="@+id/skip_next"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:src="@drawable/ic_next"
-                android:background="@android:color/transparent"
                 android:layout_gravity="center_vertical"
-                    />
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_next"
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/advance_controller"
@@ -93,33 +91,36 @@
             android:gravity="center_horizontal"
             android:layout_marginTop="32dp"
             >
+
             <ImageButton
                 android:id="@+id/shuffle"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_shuffle"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                />
+                android:src="@drawable/ic_shuffle"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
             <ImageButton
                 android:id="@+id/repeat"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:contentDescription="repeat"
-                android:src="@drawable/ic_repeat"
-                android:rotation="180"
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="40dp"
                 android:background="@android:color/transparent"
-                />
+                android:contentDescription="repeat"
+                android:rotation="180"
+                android:src="@drawable/ic_repeat"
+                tools:ignore="TouchTargetSizeCheck" />
+
             <ImageButton
                 android:id="@+id/liked"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/ic_thumb_up"
-                android:rotation="0"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                />
+                android:rotation="0"
+                android:src="@drawable/ic_thumb_up"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
     </LinearLayout>

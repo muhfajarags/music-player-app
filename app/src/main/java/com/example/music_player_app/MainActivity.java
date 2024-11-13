@@ -2,10 +2,9 @@ package com.example.music_player_app;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,30 +18,22 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         navView.setOnItemSelectedListener(navListener);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container, new HomeFragment())
-                    .commit();
-        }
     }
 
     private BottomNavigationView.OnItemSelectedListener navListener =
             item -> {
-                Fragment selectedFragment = null;
+                Intent intent = null;
 
-                if (item.getItemId() == R.id.navigation_home) {
-                    selectedFragment = new HomeFragment();
-                } else if (item.getItemId() == R.id.navigation_library) {
-                    selectedFragment = new LibraryFragment();
+                if (item.getItemId() == R.id.navigation_library) {
+                    intent = new Intent(MainActivity.this, LibraryActivity.class);
                 } else if (item.getItemId() == R.id.navigation_search) {
-                    selectedFragment = new SearchFragment();
+                    intent = new Intent(MainActivity.this, SearchActivity.class);
                 }
 
-                if (selectedFragment != null) {
-                    getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.fragment_container, selectedFragment)
-                            .commit();
+                if (intent != null) {
+                    startActivity(intent);
                 }
+
                 return true;
             };
-    }
+}
