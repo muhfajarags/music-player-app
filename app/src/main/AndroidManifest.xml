@@ -20,7 +20,7 @@
             android:name=".MyPlaylistProfileCollection"
             android:exported="false" />
         <activity
-            android:name=".EditProfile"
+            android:name=".EditProfileFragment"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
