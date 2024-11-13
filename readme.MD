@@ -16,7 +16,7 @@
 Untuk kolaborasi yang efektif, kami menggunakan beberapa branch untuk setiap developer, yaitu:
 
 - **main** - Dikelola dan dikoordinasikan oleh Muhammad Fajar Agus Saputra
-- **gilang-main** - Dikelola oleh Gilang Athaya Nauval Pratama
+- **gilang** - Dikelola oleh Gilang Athaya Nauval Pratama
 - **reno-main** - Dikelola oleh Reno Bonasa Hata Pasaribu
 
 Note: Implementasi fragment dilakukan pada branch masing-masing dan belum diintegrasikan (untuk mempermudah debugging)
