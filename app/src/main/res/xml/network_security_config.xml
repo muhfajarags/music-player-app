@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- Mengizinkan komunikasi dengan localhost -->
+        <domain includeSubdomains="true">localhost</domain>
+        <!-- Mengizinkan komunikasi dengan IP lokal emulator -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+        <!-- Mengizinkan komunikasi dengan IP lokal perangkat nyata -->
+        <domain includeSubdomains="true">192.168.56.1</domain>
+    </domain-config>
+</network-security-config>
