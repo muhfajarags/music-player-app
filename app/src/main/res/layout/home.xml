@@ -1,0 +1,629 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/bg_gradient">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="ExtraText,NotSibling">
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            >
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="48dp"
+                >
+
+                <TextView
+                    android:id="@+id/text_discover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/celloo"
+                    android:textColor="@color/white"
+                    android:textSize="40sp" />
+
+                <ImageButton
+                    android:id="@+id/ic_profile"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/profile"
+                    android:src="@drawable/ic_profile"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:id="@+id/recommended_for_you"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="@string/recommended_for_you"
+                    android:textSize="16sp"
+                    android:textColor="#9DA8CD"
+                    android:fontFamily="@font/poppins_medium" />
+            </FrameLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="335dp"
+                            android:layout_height="194dp"
+                            android:background="#266E60"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
+
+                            <!-- Bagian Kiri: Teks -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                tools:ignore="ExtraText">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:maxWidth="86dp"
+                                    android:maxLines="2"
+                                    android:text="@string/double_life"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="24sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_1000_played"
+                                    android:textColor="#CCCCCC"
+                                    android:textSize="12sp" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/shp_white_circle"
+                                    android:contentDescription="@string/double_life"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_play" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="154dp"
+                                android:layout_height="154dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_recom1" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#266E60"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
+
+                            <!-- Bagian Kiri: Teks -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                tools:ignore="ExtraText">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:maxWidth="86dp"
+                                    android:maxLines="2"
+                                    android:text="@string/double_life"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="24sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_1000_played"
+                                    android:textColor="#CCCCCC"
+                                    android:textSize="12sp" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/shp_white_circle"
+                                    android:contentDescription="@string/double_life"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_play" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="154dp"
+                                android:layout_height="154dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_recom1" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="4dp">
+
+                        <LinearLayout
+                            android:layout_width="335dp"
+                            android:layout_height="194dp"
+                            android:background="#266E60"
+                            android:orientation="horizontal"
+                            android:padding="20dp">
+
+                            <!-- Bagian Kiri: Teks -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:orientation="vertical"
+                                tools:ignore="ExtraText">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/poppins_medium"
+                                    android:maxWidth="86dp"
+                                    android:maxLines="2"
+                                    android:text="@string/double_life"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="24sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/_1000_played"
+                                    android:textColor="#CCCCCC"
+                                    android:textSize="12sp" />
+
+                                <ImageButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:background="@drawable/shp_white_circle"
+                                    android:contentDescription="@string/double_life"
+                                    android:scaleType="centerInside"
+                                    android:src="@drawable/ic_play" />
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="154dp"
+                                android:layout_height="154dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="12dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_recom1" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:id="@+id/artist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="@string/artist"
+                    android:textSize="16sp"
+                    android:textColor="#9DA8CD"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="32dp"/>
+            </FrameLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Single LinearLayout to contain all CardViews -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="16dp"
+                            >
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_artist1"
+                                app:shapeAppearanceOverlay="@style/CircleImageView"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/artist_name1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/salma_salsabil"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:layout_marginTop="8dp"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="16dp">
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_artist2"
+                                app:shapeAppearanceOverlay="@style/CircleImageView"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/artist_name2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/nabila_taqiyyah"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:layout_marginTop="8dp"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_marginEnd="16dp">
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_artist3"
+                                app:shapeAppearanceOverlay="@style/CircleImageView"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/artist_name3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/arsy_widianto"
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:layout_marginTop="8dp"/>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:id="@+id/today_hits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="@string/today_s_hits"
+                    android:textSize="16sp"
+                    android:textColor="#9DA8CD"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="32dp"/>
+            </FrameLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="MissingConstraints" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:id="@+id/recently_played"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:text="@string/recently_played"
+                    android:textSize="16sp"
+                    android:textColor="#9DA8CD"
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_marginTop="32dp"/>
+            </FrameLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Single LinearLayout to contain all CardViews -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="start"
+                            android:layout_marginEnd="16dp"
+                            >
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_rp1"
+                                app:shapeAppearanceOverlay="@style/songSquare"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/rp1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:text="Penjaga Hati"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/rp1_singer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="NNadhif Basalamah"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="0dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="start"
+                            android:layout_marginEnd="16dp">
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_rp2"
+                                app:shapeAppearanceOverlay="@style/songSquare"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/song2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Rayuan Peremp.."
+                                android:textSize="16sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:layout_marginTop="8dp"/>
+
+                            <TextView
+                                android:id="@+id/rp2_singer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Nadin Amizaha"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="0dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="4dp"
+                        app:cardBackgroundColor="@android:color/transparent">
+
+                        <!-- LinearLayout to Arrange Image and Text Vertically -->
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="start"
+                            android:layout_marginEnd="16dp">
+
+                            <!-- ShapeableImageView for Circular Image -->
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="120dp"
+                                android:layout_height="120dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/img_rp3"
+                                app:shapeAppearanceOverlay="@style/songSquare"
+                                android:layout_marginTop="12dp"/>
+
+                            <TextView
+                                android:id="@+id/rp3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center"
+                                android:text="@string/tak_selalu_memiliki"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:id="@+id/rp3_singer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/lyodra_margareta"
+                                android:textSize="12sp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/poppins_medium"
+                                android:layout_marginTop="0dp"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/bottom_nav_menu"
+            android:background="@drawable/bg_nav"
+            android:layout_marginBottom="46dp"
+            app:itemIconTint="@color/nav_item_color"
+            app:labelVisibilityMode="unlabeled"
+            app:itemBackground="@drawable/bg_nav_item"
+            />
+    </RelativeLayout>
+</RelativeLayout>

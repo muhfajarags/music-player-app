@@ -37,8 +37,7 @@
         </activity>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".MusicPlayerActivity" />
-        <activity android:name=".SearchActivity" />
-        <activity android:name=".LibraryActivity" />
+
         <service
             android:name=".MusicService"
             android:exported="false"
