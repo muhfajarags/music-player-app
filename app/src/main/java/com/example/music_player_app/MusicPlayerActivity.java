@@ -9,6 +9,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -66,6 +68,24 @@ public class MusicPlayerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 finish();
             }
+        });
+
+        ImageButton infoButton = findViewById(R.id.info);
+        int songId = intent.getIntExtra("songId", 1); // Replace with the actual song ID
+
+        // Info button - Transition to SongInfoFragment
+        infoButton.setOnClickListener(v -> {
+            // Create instance of SongInfoFragment and pass songId
+            SongInfoFragment songInfoFragment = SongInfoFragment.newInstance(songId);
+
+            // Replace current view with the fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, songInfoFragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+
+            Log.d(TAG, "Navigating to SongInfoFragment with songId: " + songId);
         });
     }
 

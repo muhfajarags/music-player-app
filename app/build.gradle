@@ -63,5 +63,9 @@ dependencies {
     implementation libs.volley
     implementation libs.gson
     implementation libs.glide.v4120
+    implementation libs.retrofit
     annotationProcessor libs.compiler.v4120
+    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
+    implementation libs.converter.gson
+
 }

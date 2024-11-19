@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -37,6 +38,14 @@ public class HomeFragment extends Fragment implements SongAdapter.OnSongClickLis
         recyclerView.setAdapter(adapter);
 
         fetchTrendingSongs();
+        ImageView profileButton = view.findViewById(R.id.ic_profile);
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -84,4 +93,5 @@ public class HomeFragment extends Fragment implements SongAdapter.OnSongClickLis
         recyclerView.setAdapter(null);
         adapter = null;
     }
+
 }
