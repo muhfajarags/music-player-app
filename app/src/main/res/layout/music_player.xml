@@ -144,4 +144,14 @@
                 android:src="@drawable/ic_thumb_up"
                 tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
+
+    <!-- Fragment Container -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.example.music_player_app.SongInfoFragment"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"/> <!-- Start with it hidden -->
+
     </LinearLayout>
