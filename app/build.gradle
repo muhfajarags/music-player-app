@@ -45,6 +45,7 @@ dependencies {
     implementation libs.firebase.auth
     implementation libs.coordinatorlayout
     implementation libs.firebase.storage
+    implementation libs.room.runtime
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
@@ -65,7 +66,8 @@ dependencies {
     implementation libs.glide.v4120
     implementation libs.retrofit
     annotationProcessor libs.compiler.v4120
-    implementation "com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3"
+    implementation libs.logging.interceptor
     implementation libs.converter.gson
+    annotationProcessor libs.room.compiler
 
 }

@@ -1,16 +1,39 @@
 package com.example.music_player_app;
 
-public class Song {
-    private String title;
-    private String artist;
-    private String cover_url;
-    private String song_url; // Add this field for song URL
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
-    public Song(String title, String artist, String cover_url, String song_url) {
+@Entity(tableName = "songs")
+public class Song {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    @ColumnInfo(name = "title")
+    private String title;
+
+    @ColumnInfo(name = "artist")
+    private String artist;
+
+    @ColumnInfo(name = "cover_resource_id")
+    private int coverResourceId;
+
+    @ColumnInfo(name = "song_resource_id")
+    private int songResourceId;
+
+    public Song(String title, String artist, int coverResourceId, int songResourceId) {
         this.title = title;
         this.artist = artist;
-        this.cover_url = cover_url;
-        this.song_url = song_url; // Initialize the song URL
+        this.coverResourceId = coverResourceId;
+        this.songResourceId = songResourceId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -21,11 +44,11 @@ public class Song {
         return artist;
     }
 
-    public String getCoverUrl() {
-        return cover_url;
+    public int getCoverResourceId() {
+        return coverResourceId;
     }
 
-    public String getSongUrl() {
-        return song_url; // Getter for song URL
+    public int getSongResourceId() {
+        return songResourceId;
     }
 }

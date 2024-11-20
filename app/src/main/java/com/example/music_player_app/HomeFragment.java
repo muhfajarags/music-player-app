@@ -19,17 +19,22 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import android.content.Intent;
-
 
 public class HomeFragment extends Fragment implements SongAdapter.OnSongClickListener {
     private RecyclerView recyclerView;
     private SongAdapter adapter;
+    private AppDatabase db;
+    private SongDao songDao;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home, container, false);
+
+        db = AppDatabase.getInstance(getContext());
+        songDao = db.songDao();
 
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -37,61 +42,87 @@ public class HomeFragment extends Fragment implements SongAdapter.OnSongClickLis
         adapter = new SongAdapter(new ArrayList<>(), getContext(), this);
         recyclerView.setAdapter(adapter);
 
-        fetchTrendingSongs();
+        initializeDataIfNeeded();
+        loadSongs();
+
         ImageView profileButton = view.findViewById(R.id.ic_profile);
-        profileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intent);
-            }
+        profileButton.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ProfileActivity.class);
+            startActivity(intent);
         });
 
         return view;
     }
+
+    private void initializeDataIfNeeded() {
+        if (songDao.getAllSongs().isEmpty()) {
+            Song[] initialSongs = {
+                    new Song(
+                            "Blinding Lights",
+                            "The Weeknd",
+                            R.drawable.blinding_lights,
+                            R.raw.blinding_lights
+                    ),
+                    new Song(
+                            "Levitating",
+                            "Dua Lipa",
+                            R.drawable.levitating,
+                            R.raw.levitating
+                    ),
+                    new Song(
+                            "Peaches",
+                            "Justin Bieber ft. Daniel Caesar & Giveon",
+                            R.drawable.peaches,
+                            R.raw.peaches
+                    ),
+                    new Song(
+                            "Good 4 U",
+                            "Olivia Rodrigo",
+                            R.drawable.good_4_u,
+                            R.raw.good_4_u
+                    ),
+                    new Song(
+                            "We Don't Talk Anymore",
+                            "Charlie Puth",
+                            R.drawable.we_dont_talk_anymore,
+                            R.raw.we_dont_talk_anymore
+                    ),
+                    new Song(
+                            "Soldier Poet King",
+                            "The Oh Hellos",
+                            R.drawable.soldier_poet_king,
+                            R.raw.soldier_poet_king
+                    )
+            }
+                    ;
+
+            for (Song song : initialSongs) {
+                songDao.insert(song);
+            }
+        }
+    }
+
+    private void loadSongs() {
+        new Thread(() -> {
+            List<Song> songs = songDao.getAllSongs();
+            requireActivity().runOnUiThread(() -> adapter.updateSongs(songs));
+        }).start();
+    }
+
     @Override
     public void onSongClick(Song song) {
         Intent intent = new Intent(getContext(), MusicPlayerActivity.class);
         intent.putExtra("songTitle", song.getTitle());
         intent.putExtra("artistName", song.getArtist());
-        intent.putExtra("songUrl", song.getSongUrl()); // Assuming you have this method in Song class
-        // You might want to pass the cover image URL instead of resource ID
-        intent.putExtra("coverImageUrl", song.getCoverUrl());
+        intent.putExtra("songResourceId", song.getSongResourceId());
+        intent.putExtra("coverResourceId", song.getCoverResourceId());
         startActivity(intent);
-    }
-
-    private void fetchTrendingSongs() {
-        String url = "https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/today_hits.json"; // Ganti dengan URL Firebase Anda
-
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null,
-                response -> {
-                    try {
-                        // Parsing JSON Array dengan GSON
-                        Gson gson = new Gson();
-                        Song[] songs = gson.fromJson(response.toString(), Song[].class);
-                        adapter.updateSongs(Arrays.asList(songs));
-                    } catch (Exception e) {
-                        Log.e("HomeFragment", "Error parsing JSON: " + e.getMessage());
-                        Toast.makeText(getContext(), "Error parsing data", Toast.LENGTH_SHORT).show();
-                    }
-                },
-                error -> {
-                    // Tangani kesalahan
-                    Log.e("HomeFragment", "Error fetching data", error);
-                    Toast.makeText(getContext(), "Error fetching data", Toast.LENGTH_SHORT).show();
-                }
-        );
-
-        // Tambahkan request ke queue Volley
-        Volley.newRequestQueue(getContext()).add(request);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d("HomeFragment", "View destroyed. RecyclerView adapter set to null.");
         recyclerView.setAdapter(null);
         adapter = null;
     }
-
 }
