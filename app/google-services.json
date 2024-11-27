@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "1090902209064",
-    "project_id": "celloo-pam",
-    "storage_bucket": "celloo-pam.appspot.com"
+    "project_number": "486371472712",
+    "firebase_url": "https://celloprofile-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "celloprofile",
+    "storage_bucket": "celloprofile.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1090902209064:android:2f44cba9c619a087603b1d",
+        "mobilesdk_app_id": "1:486371472712:android:df378338a9a7dbe53d6f7d",
         "android_client_info": {
           "package_name": "com.example.music_player_app"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDGz9-RJsWSTXlEasmKh_jUnlSg-qYTZvk"
+          "current_key": "AIzaSyBtoOvmjsKI0g1I10CNo0KFqJP5yxA7qpY"
         }
       ],
       "services": {

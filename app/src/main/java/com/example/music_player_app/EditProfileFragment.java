@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class EditProfileFragment extends Fragment {
+
     private EditText editTextUsername;
     private Button applyButton;
     private OnProfileUpdateListener profileUpdateListener;
@@ -66,6 +67,7 @@ public class EditProfileFragment extends Fragment {
             if (TextUtils.isEmpty(newUsername)) {
                 Toast.makeText(getContext(), "Username tidak boleh kosong", Toast.LENGTH_SHORT).show();
             } else {
+                // Kirim username baru ke Activity
                 profileUpdateListener.onProfileUpdated(newUsername);
                 if (getActivity() != null) {
                     getActivity().getSupportFragmentManager().popBackStack();
