@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "502825545842",
+    "firebase_url": "https://pamc-7bde7-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pamc-7bde7",
+    "storage_bucket": "pamc-7bde7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502825545842:android:0dc8c11bc07474bbe312eb",
+        "android_client_info": {
+          "package_name": "com.example.music_player_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIcQTF8uadkJKboSAyFMA1uZbZKnewh7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502825545842:android:a8f22a9bf78365b3e312eb",
+        "android_client_info": {
+          "package_name": "com.example.statusupdate"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIcQTF8uadkJKboSAyFMA1uZbZKnewh7U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

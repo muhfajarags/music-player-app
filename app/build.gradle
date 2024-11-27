@@ -69,8 +69,10 @@ dependencies {
 
     implementation libs.logging.interceptor
 
-    implementation 'androidx.room:room-runtime:2.6.1'
-    annotationProcessor 'androidx.room:room-compiler:2.6.1'
+    implementation libs.firebase.database
+    implementation libs.google.firebase.auth
+
+    implementation platform ('com.google.firebase:firebase-bom:33.6.0')
 
     annotationProcessor libs.compiler.v4120
 }
