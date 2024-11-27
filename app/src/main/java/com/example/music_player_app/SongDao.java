@@ -20,7 +20,7 @@ public interface SongDao {
     void update(Song song);
 
     @Delete
-    void delete(Song song);
+    void deleteSong(Song song);
 
     @Query("DELETE FROM songs")
     void deleteAllSongs();

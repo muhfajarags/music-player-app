@@ -24,11 +24,13 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     private final Context context;
     private final OnSongClickListener songClickListener;
 
+    // Interface for song click events
     public interface OnSongClickListener {
         void onSongClick(Song song);
     }
 
-    SongAdapter(List<Song> songs, Context context, OnSongClickListener songClickListener) {
+    // Constructor
+    public SongAdapter(List<Song> songs, Context context, OnSongClickListener songClickListener) {
         this.songs = songs;
         this.context = context;
         this.songClickListener = songClickListener;
@@ -37,29 +39,36 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
     @NonNull
     @Override
     public SongViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_song, parent, false);
+        // Inflate the item layout
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.item_song, parent, false);
         return new SongViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull SongViewHolder holder, int position) {
+        // Get the song at the current position
         Song song = songs.get(position);
+
+        // Truncate title if too long
         String shortTitle = song.getTitle().length() > 12 ?
                 song.getTitle().substring(0, 12) + "..." : song.getTitle();
         holder.titleTextView.setText(shortTitle);
 
+        // Truncate artist name if too long
         String shortSinger = song.getArtist().length() > 15 ?
                 song.getArtist().substring(0, 15) + "..." : song.getArtist();
         holder.singerTextView.setText(shortSinger);
 
-        holder.imageView.setImageResource(song.getCoverResourceId());
-        holder.itemView.setOnClickListener(v -> songClickListener.onSongClick(song));
-    }
+        // Load cover image from URL
+        Glide.with(context)
+                .load(song.getCoverUrl())
+                .into(holder.imageView);
 
-    @Override
-    public void onViewRecycled(@NonNull SongViewHolder holder) {
-        super.onViewRecycled(holder);
-        holder.clearImage();
+        // Set click listener for the item
+        holder.itemView.setOnClickListener(v ->
+                songClickListener.onSongClick(song)
+        );
     }
 
     @Override
@@ -67,23 +76,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         return songs != null ? songs.size() : 0;
     }
 
-    static class SongViewHolder extends RecyclerView.ViewHolder {
-        private final ShapeableImageView imageView;
-        private final TextView titleTextView;
-        private final TextView singerTextView;
-
-        SongViewHolder(View itemView) {
-            super(itemView);
-            imageView = itemView.findViewById(R.id.songImage);
-            titleTextView = itemView.findViewById(R.id.songTitle);
-            singerTextView = itemView.findViewById(R.id.songSinger);
-        }
-
-        void clearImage() {
-            imageView.setImageDrawable(null);
-        }
-    }
-
+    // Update songs list and notify adapter
     public void updateSongs(List<Song> newSongs) {
         DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new DiffUtil.Callback() {
             @Override
@@ -100,7 +93,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
             public boolean areItemsTheSame(int oldItemPosition, int newItemPosition) {
                 Song oldSong = songs.get(oldItemPosition);
                 Song newSong = newSongs.get(newItemPosition);
-                return oldSong.getId() == newSong.getId();
+                return oldSong.getTitle().equals(newSong.getTitle());
             }
 
             @Override
@@ -109,11 +102,25 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
                 Song newSong = newSongs.get(newItemPosition);
                 return oldSong.getTitle().equals(newSong.getTitle()) &&
                         oldSong.getArtist().equals(newSong.getArtist()) &&
-                        oldSong.getCoverResourceId() == newSong.getCoverResourceId() &&
-                        oldSong.getSongResourceId() == newSong.getSongResourceId();
+                        oldSong.getCoverUrl().equals(newSong.getCoverUrl());
             }
         });
+
         this.songs = new ArrayList<>(newSongs);
         diffResult.dispatchUpdatesTo(this);
+    }
+
+    // ViewHolder inner class
+    static class SongViewHolder extends RecyclerView.ViewHolder {
+        private final ShapeableImageView imageView;
+        private final TextView titleTextView;
+        private final TextView singerTextView;
+
+        SongViewHolder(View itemView) {
+            super(itemView);
+            imageView = itemView.findViewById(R.id.songImage);
+            titleTextView = itemView.findViewById(R.id.songTitle);
+            singerTextView = itemView.findViewById(R.id.songSinger);
+        }
     }
 }

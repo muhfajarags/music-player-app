@@ -15,40 +15,25 @@ public class Song {
     @ColumnInfo(name = "artist")
     private String artist;
 
-    @ColumnInfo(name = "cover_resource_id")
-    private int coverResourceId;
+    @ColumnInfo(name = "cover_url")
+    private String coverUrl;
 
-    @ColumnInfo(name = "song_resource_id")
-    private int songResourceId;
+    @ColumnInfo(name = "song_url")
+    private String songUrl;
 
-    public Song(String title, String artist, int coverResourceId, int songResourceId) {
+    // Constructors
+    public Song(String title, String artist, String coverUrl, String songUrl) {
         this.title = title;
         this.artist = artist;
-        this.coverResourceId = coverResourceId;
-        this.songResourceId = songResourceId;
+        this.coverUrl = coverUrl;
+        this.songUrl = songUrl;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getArtist() {
-        return artist;
-    }
-
-    public int getCoverResourceId() {
-        return coverResourceId;
-    }
-
-    public int getSongResourceId() {
-        return songResourceId;
-    }
+    // Getters and setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public String getTitle() { return title; }
+    public String getArtist() { return artist; }
+    public String getCoverUrl() { return coverUrl; }
+    public String getSongUrl() { return songUrl; }
 }

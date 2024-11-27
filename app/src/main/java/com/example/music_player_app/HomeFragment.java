@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -26,25 +32,32 @@ import android.content.Intent;
 public class HomeFragment extends Fragment implements SongAdapter.OnSongClickListener {
     private RecyclerView recyclerView;
     private SongAdapter adapter;
-    private AppDatabase db;
-    private SongDao songDao;
+    private FirebaseSongRepository songRepository;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home, container, false);
 
-        db = AppDatabase.getInstance(getContext());
-        songDao = db.songDao();
+        // Initialize Firebase Song Repository
+        songRepository = new FirebaseSongRepository(getContext());
 
+        // Setup RecyclerView
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(
+                getContext(),
+                LinearLayoutManager.HORIZONTAL,
+                false
+        ));
 
+        // Initialize adapter with empty list
         adapter = new SongAdapter(new ArrayList<>(), getContext(), this);
         recyclerView.setAdapter(adapter);
 
-        initializeDataIfNeeded();
-        loadSongs();
+        // Fetch songs from Firebase
+        fetchSongs();
 
+        // Setup profile button
         ImageView profileButton = view.findViewById(R.id.ic_profile);
         profileButton.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ProfileActivity.class);
@@ -54,74 +67,50 @@ public class HomeFragment extends Fragment implements SongAdapter.OnSongClickLis
         return view;
     }
 
-    private void initializeDataIfNeeded() {
-        if (songDao.getAllSongs().isEmpty()) {
-            Song[] initialSongs = {
-                    new Song(
-                            "Blinding Lights",
-                            "The Weeknd",
-                            R.drawable.blinding_lights,
-                            R.raw.blinding_lights
-                    ),
-                    new Song(
-                            "Levitating",
-                            "Dua Lipa",
-                            R.drawable.levitating,
-                            R.raw.levitating
-                    ),
-                    new Song(
-                            "Peaches",
-                            "Justin Bieber ft. Daniel Caesar & Giveon",
-                            R.drawable.peaches,
-                            R.raw.peaches
-                    ),
-                    new Song(
-                            "Good 4 U",
-                            "Olivia Rodrigo",
-                            R.drawable.good_4_u,
-                            R.raw.good_4_u
-                    ),
-                    new Song(
-                            "We Don't Talk Anymore",
-                            "Charlie Puth",
-                            R.drawable.we_dont_talk_anymore,
-                            R.raw.we_dont_talk_anymore
-                    ),
-                    new Song(
-                            "Soldier Poet King",
-                            "The Oh Hellos",
-                            R.drawable.soldier_poet_king,
-                            R.raw.soldier_poet_king
-                    )
-            }
-                    ;
+    // Method to fetch songs from Firebase
+    private void fetchSongs() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance(
+                "https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/"
+        ).getReference("today_hits");
 
-            for (Song song : initialSongs) {
-                songDao.insert(song);
-            }
-        }
-    }
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<Song> songs = new ArrayList<>();
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    Song song = childSnapshot.getValue(Song.class);
+                    if (song != null) {
+                        songs.add(song);
+                    }
+                }
 
-    private void loadSongs() {
-        new Thread(() -> {
-            List<Song> songs = songDao.getAllSongs();
-            requireActivity().runOnUiThread(() -> adapter.updateSongs(songs));
-        }).start();
+                // Update adapter with fetched songs
+                adapter.updateSongs(songs);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Error fetching songs", error.toException());
+                // Optionally show an error message to the user
+            }
+        });
     }
 
     @Override
     public void onSongClick(Song song) {
+        // Navigate to Music Player Activity with song details
         Intent intent = new Intent(getContext(), MusicPlayerActivity.class);
         intent.putExtra("songTitle", song.getTitle());
         intent.putExtra("artistName", song.getArtist());
-        intent.putExtra("songResourceId", song.getSongResourceId());
-        intent.putExtra("coverResourceId", song.getCoverResourceId());
+        intent.putExtra("songUrl", song.getSongUrl());
+        intent.putExtra("coverUrl", song.getCoverUrl());
         startActivity(intent);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        // Clean up resources
         recyclerView.setAdapter(null);
         adapter = null;
     }

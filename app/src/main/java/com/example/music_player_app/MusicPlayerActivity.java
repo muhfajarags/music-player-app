@@ -19,7 +19,6 @@ import com.bumptech.glide.Glide;
 import java.io.IOException;
 
 public class MusicPlayerActivity extends AppCompatActivity {
-
     private MediaPlayer mediaPlayer;
     private ImageButton playPauseButton;
     private boolean isPlaying = false;
@@ -30,23 +29,38 @@ public class MusicPlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_player);
 
+        // Retrieve song details from intent
         Intent intent = getIntent();
         String songTitle = intent.getStringExtra("songTitle");
         String artistName = intent.getStringExtra("artistName");
-        int songResourceId = intent.getIntExtra("songResourceId", 0);
-        int coverResourceId = intent.getIntExtra("coverResourceId", 0);
+        String songUrl = intent.getStringExtra("songUrl");
+        String coverUrl = intent.getStringExtra("coverUrl");
 
+        // Find UI elements
         TextView songTitleView = findViewById(R.id.song_title);
         TextView artistNameView = findViewById(R.id.song_artist);
         ImageView coverImageView = findViewById(R.id.song_cover);
         playPauseButton = findViewById(R.id.pause_music_player);
 
+        // Set song details
         songTitleView.setText(songTitle);
         artistNameView.setText(artistName);
-        coverImageView.setImageResource(coverResourceId);
 
-        mediaPlayer = MediaPlayer.create(this, songResourceId);
+        // Load cover image
+        Glide.with(this)
+                .load(coverUrl)
+                .into(coverImageView);
 
+        // Initialize MediaPlayer with song URL
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(songUrl);
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            Log.e(TAG, "Error setting up MediaPlayer", e);
+        }
+
+        // Setup play/pause button
         playPauseButton.setOnClickListener(v -> {
             if (isPlaying) {
                 pauseMusic();
@@ -77,6 +91,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        // Release MediaPlayer resources
         if (mediaPlayer != null) {
             mediaPlayer.release();
             Log.d(TAG, "MediaPlayer released");

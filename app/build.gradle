@@ -40,12 +40,8 @@ dependencies {
     implementation libs.activity
     implementation libs.constraintlayout
     implementation libs.media3.common
-    implementation libs.firebase.firestore
     implementation libs.media3.exoplayer
-    implementation libs.firebase.auth
     implementation libs.coordinatorlayout
-    implementation libs.firebase.storage
-    implementation libs.room.runtime
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
@@ -59,7 +55,6 @@ dependencies {
     androidTestImplementation libs.espresso.core.v340
     implementation libs.material.v130alpha03
     implementation platform(libs.firebase.bom)
-    implementation libs.firebase.analytics
     implementation libs.core.ktx
     implementation libs.volley
     implementation libs.gson
@@ -68,6 +63,21 @@ dependencies {
     annotationProcessor libs.compiler.v4120
     implementation libs.logging.interceptor
     implementation libs.converter.gson
-    annotationProcessor libs.room.compiler
+
+    // Firebase Realtime Database
+    implementation 'com.google.firebase:firebase-database:20.3.0'
+
+    // Firebase Storage (for song and cover URLs)
+    implementation 'com.google.firebase:firebase-storage:20.3.0'
+
+    // Room Database
+    def room_version = "2.6.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+
+    // Glide for image loading
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
 }
