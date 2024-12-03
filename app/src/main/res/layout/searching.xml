@@ -5,25 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_gradient">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        >
-            <TextView
-                android:id="@+id/text_discover"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:fontFamily="@font/poppins_medium"
-                android:text="@string/search"
-                android:textColor="@color/white"
-                android:textSize="40sp"
-                android:layout_marginTop="48dp"
-                android:layout_marginBottom="16dp"
+        android:padding="16dp">
 
-                />
+        <!-- Title TextView -->
+        <TextView
+            android:id="@+id/text_discover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="16dp" />
 
+        <!-- Search Bar -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="49dp"
@@ -35,20 +36,20 @@
             android:background="@drawable/bg_search_bar"
             android:layout_gravity="center">
 
-        <!-- Icon Search di Kiri -->
-        <ImageView
-            android:id="@+id/search_icon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="8dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:tint="@android:color/darker_gray" />
+            <!-- Search Icon -->
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:tint="@android:color/darker_gray" />
 
-        <!-- EditText untuk Input Search -->
+            <!-- EditText for Search -->
             <EditText
                 android:id="@+id/search_edit_text"
                 android:layout_width="0dp"
@@ -66,6 +67,19 @@
                 app:layout_constraintStart_toEndOf="@id/search_icon"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="TouchTargetSizeCheck" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- RecyclerView for search results -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_gravity="center"
+            android:scrollbars="vertical"
+            android:layout_weight="1" />
+
     </LinearLayout>
+
 </ScrollView>
