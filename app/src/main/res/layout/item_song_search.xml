@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:text="Song Title"
         android:textSize="16sp"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/white" />
 
     <TextView
         android:id="@+id/song_artist"
