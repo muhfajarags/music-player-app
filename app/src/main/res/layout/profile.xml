@@ -27,8 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_back"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                android:src="@drawable/ic_back" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -69,10 +68,10 @@
                         android:layout_marginTop="13dp"
                         android:background="@drawable/bg_search_bar"
                         android:fontFamily="@font/poppins_semibold"
-                        android:paddingHorizontal="26dp"
-                        android:paddingVertical="13dp"
+                        android:paddingHorizontal="36dp"
+                        android:paddingVertical="0dp"
                         android:text="Edit Profile"
-                        android:textSize="16sp" />
+                        android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 

@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "651048645020",
-    "project_id": "music-player-app-7fe7e",
-    "storage_bucket": "music-player-app-7fe7e.firebasestorage.app"
+    "project_number": "1090902209064",
+    "firebase_url": "https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "celloo-pam",
+    "storage_bucket": "celloo-pam.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:651048645020:android:0a2e9b795c237cf3f09859",
+        "mobilesdk_app_id": "1:1090902209064:android:0a8a291632d05d9a603b1d",
         "android_client_info": {
           "package_name": "com.example.music_player_app"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAEVtI4xzivDvH7ZM0NmKNp_SMr9O7OtG0"
+          "current_key": "AIzaSyDGz9-RJsWSTXlEasmKh_jUnlSg-qYTZvk"
         }
       ],
       "services": {

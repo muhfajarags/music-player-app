@@ -81,13 +81,7 @@ public class MyPlaylistProfileCollection
         VH vh = (VH) holder;
         vh.tvMyPlaylistName.setText(mp.MyPlaylistName);
         vh.tvMyPlaylistDate.setText(mp.MyPlaylistDate);
-        Log.d("Glide Debug", "Image URL: " + mp.img_url);
-
-        Glide.with(ctx)
-                .load("https://i.imgur.com/hyjYGJt.png")
-                .placeholder(R.drawable.placeholder)
-                .error(R.drawable.error_image)
-                .into(vh.ivMyPlaylist);
+        vh.ivMyPlaylist.setImageResource(ctx.getResources().getIdentifier(mp.MyPlaylistImg, "drawable", ctx.getPackageName()));
     }
 
 

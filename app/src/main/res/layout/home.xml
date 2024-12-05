@@ -84,8 +84,6 @@
                             android:background="#266E60"
                             android:orientation="horizontal"
                             android:padding="20dp">
-
-                            <!-- Bagian Kiri: Teks -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -150,7 +148,6 @@
                             android:orientation="horizontal"
                             android:padding="20dp">
 
-                            <!-- Bagian Kiri: Teks -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -215,7 +212,6 @@
                             android:orientation="horizontal"
                             android:padding="20dp">
 
-                            <!-- Bagian Kiri: Teks -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -289,19 +285,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <!-- Single LinearLayout to contain all CardViews -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@android:color/transparent">
 
-                        <!-- LinearLayout to Arrange Image and Text Vertically -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -310,12 +299,11 @@
                             android:layout_marginEnd="16dp"
                             >
 
-                            <!-- ShapeableImageView for Circular Image -->
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_artist1"
+                                android:src="@drawable/artist1"
                                 app:shapeAppearanceOverlay="@style/CircleImageView"
                                 android:layout_marginTop="12dp"/>
 
@@ -331,28 +319,20 @@
                                 android:layout_marginTop="8dp"/>
 
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@android:color/transparent">
-
-                        <!-- LinearLayout to Arrange Image and Text Vertically -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:gravity="center"
-                            android:layout_marginEnd="16dp">
+                            android:layout_marginEnd="16dp"
+                            >
 
-                            <!-- ShapeableImageView for Circular Image -->
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_artist2"
+                                android:src="@drawable/artist2"
                                 app:shapeAppearanceOverlay="@style/CircleImageView"
                                 android:layout_marginTop="12dp"/>
 
@@ -368,28 +348,19 @@
                                 android:layout_marginTop="8dp"/>
 
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@android:color/transparent">
-
-                        <!-- LinearLayout to Arrange Image and Text Vertically -->
-                        <LinearLayout
+                <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:gravity="center"
                             android:layout_marginEnd="16dp">
 
-                            <!-- ShapeableImageView for Circular Image -->
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:scaleType="centerCrop"
-                                android:src="@drawable/img_artist3"
+                                android:src="@drawable/artist3"
                                 app:shapeAppearanceOverlay="@style/CircleImageView"
                                 android:layout_marginTop="12dp"/>
 
@@ -405,41 +376,22 @@
                                 android:layout_marginTop="8dp"/>
 
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp">
-
                 <TextView
                     android:id="@+id/today_hits"
                     android:layout_width="wrap_content"
-                    android:layout_height="24dp"
+                    android:layout_height="wrap_content"
                     android:text="@string/today_s_hits"
                     android:textSize="16sp"
                     android:textColor="#9DA8CD"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_marginTop="32dp"/>
-            </FrameLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:ignore="MissingConstraints" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp">
+                    android:layout_height="wrap_content"/>
 
                 <TextView
                     android:id="@+id/recently_played"
@@ -450,25 +402,16 @@
                     android:textColor="#9DA8CD"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_marginTop="32dp"/>
-            </FrameLayout>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <!-- Single LinearLayout to contain all CardViews -->
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@android:color/transparent">
-
-                        <!-- LinearLayout to Arrange Image and Text Vertically -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -477,7 +420,6 @@
                             android:layout_marginEnd="16dp"
                             >
 
-                            <!-- ShapeableImageView for Circular Image -->
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
@@ -507,13 +449,7 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:layout_marginTop="0dp"/>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@android:color/transparent">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -549,23 +485,14 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:layout_marginTop="0dp"/>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:cardElevation="4dp"
-                        app:cardBackgroundColor="@android:color/transparent">
-
-                        <!-- LinearLayout to Arrange Image and Text Vertically -->
-                        <LinearLayout
+                    <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:gravity="start"
                             android:layout_marginEnd="16dp">
 
-                            <!-- ShapeableImageView for Circular Image -->
                             <com.google.android.material.imageview.ShapeableImageView
                                 android:layout_width="120dp"
                                 android:layout_height="120dp"
@@ -595,7 +522,6 @@
                                 android:fontFamily="@font/poppins_medium"
                                 android:layout_marginTop="0dp"/>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>
         </LinearLayout>

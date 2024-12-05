@@ -107,8 +107,6 @@ public class MyPlaylistFragment extends Fragment {
                     JSONObject playlistObject = jsonArray.getJSONObject(i);
                     String title = playlistObject.getString("title");
                     String date = playlistObject.getString("tanggal");
-                    String imgUrl = playlistObject.getString("img_url");
-                    playlist.add(new MyPlaylistProfile(title, date, imgUrl));
                 }
 
                 // Panggil method untuk mengupdate RecyclerView

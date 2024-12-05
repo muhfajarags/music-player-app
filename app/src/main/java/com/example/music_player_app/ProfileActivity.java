@@ -1,4 +1,3 @@
-// ProfileActivity.java
 package com.example.music_player_app;
 
 import android.os.Bundle;
@@ -12,6 +11,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,24 +27,29 @@ public class ProfileActivity extends AppCompatActivity implements EditProfileFra
     private MyPlaylistProfileCollection adapter;
     private RecyclerView rvCollection;
 
+    private DatabaseReference databaseReference;
+    private String userId = "UserID";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        // Inisialisasi RecyclerView dan adapter (kode sama seperti sebelumnya)
+        // Inisialisasi Firebase Database Reference
+        databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId);
+
+        // Inisialisasi RecyclerView dan adapter
         initializeRecyclerView();
 
         profileName = findViewById(R.id.profileName);
-        String savedUsername = getSharedPreferences("ProfileData", MODE_PRIVATE)
-                .getString("username", "Dianboo");
-        profileName.setText(savedUsername);
+
+        // Ambil data username dari Firebase
+        loadUsernameFromDatabase();
 
         Button editProfileBtn = findViewById(R.id.editProfileBtn);
         ImageButton backButton = findViewById(R.id.arrow_back);
 
         editProfileBtn.setOnClickListener(v -> openEditProfileFragment());
-
         backButton.setOnClickListener(v -> finish());
     }
 
@@ -61,10 +71,26 @@ public class ProfileActivity extends AppCompatActivity implements EditProfileFra
     @Override
     public void onProfileUpdated(String newUsername) {
         profileName.setText(newUsername);
-        getSharedPreferences("ProfileData", MODE_PRIVATE)
-                .edit()
-                .putString("username", newUsername)
-                .apply();
+
+        // Simpan username baru ke Firebase
+        databaseReference.child("username").setValue(newUsername);
+    }
+
+    private void loadUsernameFromDatabase() {
+        databaseReference.child("username").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                String username = snapshot.getValue(String.class);
+                if (username != null) {
+                    profileName.setText(username);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Handle error
+            }
+        });
     }
 
     @Override

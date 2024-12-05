@@ -1,63 +1,46 @@
 package com.example.music_player_app;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
+import java.util.ArrayList;
+import java.util.List;
+import android.content.Intent;
+import android.widget.ImageView;
+import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import android.content.Intent;
-
-public class HomeFragment extends Fragment implements SongAdapter.OnSongClickListener {
+public class HomeFragment extends Fragment implements OnSongClickListener {
     private RecyclerView recyclerView;
     private SongAdapter adapter;
-    private FirebaseSongRepository songRepository;
+    private DatabaseReference db;
+    private DatabaseReference todayHitsDB;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.home, container, false);
 
-        // Initialize Firebase Song Repository
-        songRepository = new FirebaseSongRepository(getContext());
-
-        // Setup RecyclerView
         recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(
-                getContext(),
-                LinearLayoutManager.HORIZONTAL,
-                false
-        ));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        // Initialize adapter with empty list
-        adapter = new SongAdapter(new ArrayList<>(), getContext(), this);
+        adapter = new SongAdapter(new ArrayList<>(), getContext(), this); //memberi tahu adapter tentang interface SongAdapter.OnSongClickListener
         recyclerView.setAdapter(adapter);
 
-        // Fetch songs from Firebase
-        fetchSongs();
+        db = FirebaseDatabase.getInstance("https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
+        todayHitsDB = db.child("today_hits");
 
-        // Setup profile button
+        loadSongsFromFirebase();
+
+        //use case profile
         ImageView profileButton = view.findViewById(R.id.ic_profile);
         profileButton.setOnClickListener(v -> {
             Intent intent = new Intent(getActivity(), ProfileActivity.class);
@@ -67,50 +50,48 @@ public class HomeFragment extends Fragment implements SongAdapter.OnSongClickLis
         return view;
     }
 
-    // Method to fetch songs from Firebase
-    private void fetchSongs() {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance(
-                "https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/"
-        ).getReference("today_hits");
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
+    private void loadSongsFromFirebase() {
+        todayHitsDB.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 List<Song> songs = new ArrayList<>();
                 for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    // Asumsikan model data Song sesuai dengan data di Firebase
                     Song song = childSnapshot.getValue(Song.class);
                     if (song != null) {
+                        Log.d("HomeFragment", "Song loaded: " + song.getTitle());
                         songs.add(song);
+                    } else {
+                        Log.e("HomeFragment", "Failed to parse song from snapshot");
                     }
-                }
 
-                // Update adapter with fetched songs
+                }
                 adapter.updateSongs(songs);
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("Firebase", "Error fetching songs", error.toException());
-                // Optionally show an error message to the user
+                Toast.makeText(getContext(), "Failed to load data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
+
     @Override
     public void onSongClick(Song song) {
-        // Navigate to Music Player Activity with song details
         Intent intent = new Intent(getContext(), MusicPlayerActivity.class);
         intent.putExtra("songTitle", song.getTitle());
         intent.putExtra("artistName", song.getArtist());
         intent.putExtra("songUrl", song.getSongUrl());
         intent.putExtra("coverUrl", song.getCoverUrl());
         startActivity(intent);
+        Log.d("HomeFragment", "Song clicked: " + song.getTitle());
     }
 
     @Override
-    public void onDestroyView() {
+    public void onDestroyView() { //untuk menghindari memory leak
         super.onDestroyView();
-        // Clean up resources
         recyclerView.setAdapter(null);
         adapter = null;
     }
