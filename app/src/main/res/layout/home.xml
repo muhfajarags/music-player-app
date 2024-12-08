@@ -47,20 +47,14 @@
                     tools:ignore="TouchTargetSizeCheck" />
             </FrameLayout>
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp">
-
                 <TextView
                     android:id="@+id/recommended_for_you"
                     android:layout_width="wrap_content"
                     android:layout_height="24dp"
                     android:text="@string/recommended_for_you"
                     android:textSize="16sp"
-                    android:textColor="#9DA8CD"
+                    android:textColor="@color/textSection"
                     android:fontFamily="@font/poppins_medium" />
-            </FrameLayout>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -265,10 +259,6 @@
                 </LinearLayout>
 
             </HorizontalScrollView>
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp">
 
                 <TextView
                     android:id="@+id/artist"
@@ -276,10 +266,9 @@
                     android:layout_height="24dp"
                     android:text="@string/artist"
                     android:textSize="16sp"
-                    android:textColor="#9DA8CD"
+                    android:textColor="@color/textSection"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_marginTop="32dp"/>
-            </FrameLayout>
 
             <HorizontalScrollView
                 android:layout_width="match_parent"
@@ -384,7 +373,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/today_s_hits"
                     android:textSize="16sp"
-                    android:textColor="#9DA8CD"
+                    android:textColor="@color/textSection"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_marginTop="32dp"/>
 
@@ -399,7 +388,7 @@
                     android:layout_height="24dp"
                     android:text="@string/recently_played"
                     android:textSize="16sp"
-                    android:textColor="#9DA8CD"
+                    android:textColor="@color/textSection"
                     android:fontFamily="@font/poppins_medium"
                     android:layout_marginTop="32dp"/>
 

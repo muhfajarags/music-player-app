@@ -22,8 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeFragment extends Fragment implements OnSongClickListener {
     private RecyclerView recyclerView;
     private SongAdapter adapter;
-    private DatabaseReference db;
+    private FirebaseDatabase db;
     private DatabaseReference todayHitsDB;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,8 +36,8 @@ public class HomeFragment extends Fragment implements OnSongClickListener {
         adapter = new SongAdapter(new ArrayList<>(), getContext(), this); //memberi tahu adapter tentang interface SongAdapter.OnSongClickListener
         recyclerView.setAdapter(adapter);
 
-        db = FirebaseDatabase.getInstance("https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference();
-        todayHitsDB = db.child("today_hits");
+        db = FirebaseDatabase.getInstance();
+        todayHitsDB = db.getReference("today_hits");
 
         loadSongsFromFirebase();
 
@@ -86,7 +87,6 @@ public class HomeFragment extends Fragment implements OnSongClickListener {
         intent.putExtra("songUrl", song.getSongUrl());
         intent.putExtra("coverUrl", song.getCoverUrl());
         startActivity(intent);
-        Log.d("HomeFragment", "Song clicked: " + song.getTitle());
     }
 
     @Override

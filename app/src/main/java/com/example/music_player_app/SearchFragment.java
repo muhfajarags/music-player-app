@@ -40,7 +40,7 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.searching, container, false);
 
         // Initialize Firebase Database reference
-        database = FirebaseDatabase.getInstance("https://celloo-pam-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        database = FirebaseDatabase.getInstance();
         songsRef = database.getReference("songs");
 
         // Initialize views
