@@ -2,7 +2,7 @@
 
 # Celloo 🎶
 
-**Celloo** adalah pemutar musik praktis dan intuitif untuk Android yang dirancang untuk menghadirkan pengalaman mendengarkan yang mudah dan imersif. Dengan Celloo, Anda dapat menikmati lagu-lagu favorit Anda dan menjelajahi musik baru dengan antarmuka yang ramah pengguna dan akses instan ke perpustakaan musik Anda. 
+**Celloo** adalah aplikasi pemutar musik untuk Android yang dirancang untuk menghadirkan pengalaman mendengarkan musik yang sederhana dan bebas distraksi. Berbeda dengan banyak aplikasi musik modern yang mengutamakan fitur seperti rekomendasi berbasis algoritma canggih atau personalisasi, Celloo bertujuan mengembalikan esensi utama dari mendengarkan musik—menikmati musik itu sendiri. Dengan antarmuka yang ramah pengguna dan akses instan ke perpustakaan musik Anda, Celloo memungkinkan Anda fokus sepenuhnya pada pengalaman mendengarkan tanpa gangguan yang tidak perlu.
 
 ## Cobalah Demo Aplikasi Kami Sekarang ⏬
 [Download_Celloo_Apk](https://github.com/muhfajarags/project-papb-2024/releases/download/v0.0.1/celloo.apk)
@@ -12,7 +12,6 @@
 - **Antarmuka Pengguna yang Ramah** - Desain yang sederhana dan intuitif untuk pengalaman pemutaran yang menyenangkan.
 - **Akses Perpustakaan Musik Instan** - Putar lagu langsung dari koleksi musik di perangkat Anda.
 - **Pemutar Musik Berkualitas** - Suara jernih dan pemutaran yang lancar tanpa gangguan.
-- **Playlist Generation Using AI** - Buat playlist otomatis berdasarkan preferensi musik Anda untuk pengalaman mendengarkan yang lebih personal.
 
 ## Fitur Yang Tersedia Saat Ini 🚀
 
