@@ -4,18 +4,15 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
-
 import java.io.IOException;
-import java.net.URL;
 
 public class MusicPlayerActivity extends AppCompatActivity {
 
@@ -26,6 +23,15 @@ public class MusicPlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_player);
+
+        // back button
+        ImageButton backButton = findViewById(R.id.arrow_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         // Ambil data dari intent dengan pemeriksaan null safety
         Intent intent = getIntent();
@@ -54,11 +60,7 @@ public class MusicPlayerActivity extends AppCompatActivity {
                 .error(R.drawable.error_image)
                 .into(coverImageView);
 
-        if (songUrl.isEmpty()) {
-            Toast.makeText(this, "Invalid song URL", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
+        //use case music player
         initializeMediaPlayer(songUrl);
     }
 
